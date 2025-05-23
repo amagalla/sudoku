@@ -1,0 +1,35 @@
+{
+  "name": "terros",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -L app/server/index.ts",
+    "serve":"npm i && (cd app/client && npm i) && (cd app/server && npm i) && docker-compose up",
+    "mysql": "docker exec -it mysql mysql -u anthony -p",
+    "docker-test": "mocha --require ts-node/register ${TEST_PATH} --exit",
+    "test": "npm i && docker-compose -f docker-compose.test.yml run --rm test-server",
+    "docker-rebuild": "docker system prune -af && docker-compose build --no-cache && npm i && docker-compose up"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/chai": "^4.3.16",
+    "@types/chai-http": "^3.0.5",
+    "@types/express": "^5.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/sinon": "^17.0.3",
+    "chai": "^4.4.1",
+    "chai-http": "^4.4.0",
+    "concurrently": "^9.1.0",
+    "mocha": "^11.0.1",
+    "nodemon": "^3.1.7",
+    "sinon": "^19.0.2",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.14.1"
+  }
+}

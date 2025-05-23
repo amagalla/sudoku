@@ -1,0 +1,24 @@
+services:
+  test-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: server-test
+    volumes:
+      - .:/app
+      - ./tests:/app/tests
+      - /app/node_modules
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      TEST_PATH: ${TEST_PATH}
+    command: sh -c "npm run docker-test"
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge

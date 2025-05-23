@@ -1,6 +1,6 @@
 Sudoku Node/Express app
 
-This sudoku logic game is handled using node in app/server directory. I wish I have time to include a frontend, but please use postman to run endpoints.
+This sudoku logic game is handled using node in app/server directory. I wish I had time to include a frontend, but please use postman to run endpoints.
 
 To run project, please have docker installed
 
